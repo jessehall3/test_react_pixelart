@@ -11,6 +11,7 @@ const Canvas = (props) => {
   }
 
   const [matrix, setMatrix] = useState(createMatrix())
+  const [mouseDown, setMouseDown] = useState(false)
 
   const setPixelColor= (rowIndex, colIndex) => {
     const newMatrix = JSON.parse(JSON.stringify(matrix))
@@ -27,7 +28,23 @@ const Canvas = (props) => {
             <Pixel
               key={`${rowIndex}-${colIndex}`}
               background={Colors[matrix[rowIndex][colIndex]]}
-              onClick={ e => setPixelColor(rowIndex, colIndex) }
+              onClick={ (e) =>  {
+                console.log("MOUSE IS UP!!!!");
+                setPixelColor(rowIndex, colIndex) }
+              }
+              onMouseDown={ (e) => {
+                  setMouseDown(true)
+                  console.log("MOUSE IS DOWN!!!!!");
+                }
+              }
+              onMouseUp={ e => setMouseDown(false)}
+              onMouseEnter={ (e) => {
+                  if(mouseDown) {
+                    setPixelColor(rowIndex, colIndex)
+                    console.log("MOUSE DOWN");
+                  }
+                }
+              }
             />
           )
         })

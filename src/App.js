@@ -4,7 +4,7 @@ import ColorPicker from './components/ColorPicker';
 import './App.css';
 
 function App() {
-  const [color, setColor] = useState(0)
+  const [color, setColor] = useState(4) // 4 is blue
   return (
     <div className="App">
       <h1>Pixel Art</h1>

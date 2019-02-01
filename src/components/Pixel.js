@@ -6,6 +6,9 @@ export default props => {
     <div
       className={`${props.background} pixel  ${currentColor}`}
       onClick={props.onClick}
+      onMouseEnter={props.onMouseEnter}
+      onMouseDown={props.onMouseDown}
+      onMouseUp={props.onMouseUp}
     />
   )
 }
