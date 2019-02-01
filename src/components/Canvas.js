@@ -28,20 +28,12 @@ const Canvas = (props) => {
             <Pixel
               key={`${rowIndex}-${colIndex}`}
               background={Colors[matrix[rowIndex][colIndex]]}
-              onClick={ (e) =>  {
-                console.log("MOUSE IS UP!!!!");
-                setPixelColor(rowIndex, colIndex) }
-              }
-              onMouseDown={ (e) => {
-                  setMouseDown(true)
-                  console.log("MOUSE IS DOWN!!!!!");
-                }
-              }
-              onMouseUp={ e => setMouseDown(false)}
-              onMouseEnter={ (e) => {
+              onClick={ e => setPixelColor(rowIndex, colIndex) }
+              onMouseDown={ e => setMouseDown(true) }
+              onMouseUp={ e => setMouseDown(false) }
+              onMouseEnter={ e => {
                   if(mouseDown) {
                     setPixelColor(rowIndex, colIndex)
-                    console.log("MOUSE DOWN");
                   }
                 }
               }
