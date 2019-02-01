@@ -11,6 +11,22 @@
   background-color: rgb(33, 150, 243);
 }
 
+.yellow{
+  background-color: #edc951;
+}
+.orange{
+  background-color: #eb6841;
+}
+.red{
+  background-color: #cd3936;
+}
+.purple{
+  background-color: #541f42;
+}
+.brown{
+  background-color: #4f372d;
+}
+
 /* Every pixel is 30x30px, and has a light border */
 .pixel {
   width: 30px;
