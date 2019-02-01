@@ -4,10 +4,12 @@ import ColorPicker from './components/ColorPicker';
 import './App.css';
 
 function App() {
+  const [color, setColor] = useState(0)
+  
   return (
     <div className="App">
       <h1>Pixel Art</h1>
-      <ColorPicker />
+      <ColorPicker currentColor={color} />
       <Canvas />
     </div>
   );
