@@ -12,7 +12,9 @@ function App() {
         currentColor={color}
         setColor={setColor}
       />
-      <Canvas />
+      <Canvas
+        currentColor={color}
+      />
     </div>
   );
 }
