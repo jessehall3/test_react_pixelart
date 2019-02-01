@@ -15,7 +15,7 @@
 .pixel {
   width: 30px;
   height: 30px;
-  border: 2px solid black;
+  border: 1px solid black;
   box-sizing: border-box;
 }
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Pixel from './components/Pixel';
+import Canvas from './components/Canvas';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <h1>Pixel Art</h1>
-      <Pixel />
+      <Canvas />
     </div>
   );
 }
