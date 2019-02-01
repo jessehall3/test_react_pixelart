@@ -10,11 +10,7 @@ const ColorPicker = (props) => {
           key={index}
           background={color}
           current={Colors[props.currentColor] === color}
-          onClick={ (e) =>
-            {
-              props.setColor(index)
-            }
-          }
+          onClick={ e => props.setColor(index) }
         />
       })}
     </div>
