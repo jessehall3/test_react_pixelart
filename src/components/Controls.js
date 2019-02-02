@@ -6,10 +6,16 @@ const Controls = (props) => {
   return (
     <div>
       <div className="radio">
-      <input type="radio" name="tool_type" value="0" checked={props.toolType == 0}/>
-        Paint Brush<br/>
-      <input type="radio" name="tool_type" value="1" checked={props.toolType == 1}/>
-        Flood Fill<br/>
+      <input type="radio"
+        name="tool_type" value="0"
+        checked={props.toolType == 0}
+        onClick={() => props.setToolType(0)}/>
+          Paint Brush<br/>
+      <input type="radio"
+        name="tool_type" value="1"
+        checked={props.toolType == 1}
+        onClick={() => props.setToolType(1)}/>
+          Flood Fill<br/>
       </div>
       <button onClick={() => props.setUniformColor(0)}>
         Clear
