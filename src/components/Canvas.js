@@ -23,6 +23,22 @@ const Canvas = (props) => {
     }
   })
 
+  const runTool = (rowIndex, colIndex) => {
+    const tool2action = {
+      "0" : function() {
+        setPixelColor(rowIndex, colIndex)
+      },
+      "1" : function() {
+        floodFill(rowIndex, colIndex)
+      },
+    }
+    tool2action[props.toolType]()
+  }
+
+  const floodFill = (rowIndex, colIndex) => {
+    console.log('foo');
+  }
+
   const setPixelColor= (rowIndex, colIndex) => {
     const newMatrix = JSON.parse(JSON.stringify(matrix))
     newMatrix[rowIndex][colIndex] = props.currentColor
@@ -31,7 +47,7 @@ const Canvas = (props) => {
 
   const dragBrush = (rowIndex, colIndex) => {
     if(mouseDown) {
-      setPixelColor(rowIndex, colIndex)
+      runTool(rowIndex, colIndex)
     }
   }
 
@@ -44,7 +60,7 @@ const Canvas = (props) => {
             <Pixel
               key={`${rowIndex}-${colIndex}`}
               background={Colors[matrix[rowIndex][colIndex]]}
-              onClick={ () => setPixelColor(rowIndex, colIndex) }
+              onClick={ () => runTool(rowIndex, colIndex) }
               onMouseDown={ () => setMouseDown(true) }
               onMouseUp={ () => setMouseDown(false) }
               onMouseEnter={ () => dragBrush(rowIndex, colIndex) }

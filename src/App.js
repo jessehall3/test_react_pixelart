@@ -24,6 +24,7 @@ function App() {
         currentColor={color}
         uniformColor={uniformColor}
         setUniformColor={setUniformColor}
+        toolType={toolType}
       />
     </div>
   );
