@@ -9,10 +9,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Pixel Art</h1>
-      <button onClick={() => setUniformColor(0)}>
-        Clear
-      </button>
+      <div>
+        <h1>Pixel Art</h1>
+        <button onClick={() => setUniformColor(0)}>
+          Clear
+        </button>
+      </div>
       <ColorPicker
         currentColor={color}
         setColor={setColor}
