@@ -29,14 +29,35 @@ const Canvas = (props) => {
         setPixelColor(rowIndex, colIndex)
       },
       "1" : function() {
-        floodFill(rowIndex, colIndex)
+        tempFill(rowIndex, colIndex)
       },
     }
     tool2action[props.toolType]()
   }
 
-  const floodFill = (rowIndex, colIndex) => {
+  const tempFill = (rowIndex, colIndex) => {
     console.log('foo');
+  }
+
+  const floodFill = (x, y, visited=false, n=defaultSize, m=defaultSize) => {
+    if (x >= n || y >= m){
+      return
+    }
+    if(x < 0 || y < 0){
+      return
+    }
+    if(visited[x][y] === true){
+      return
+    }
+    visited[x][y] = true
+    floodFill(x-1, y-1, visited, n, m)
+    floodFill(x-1, y, visited, n, m)
+    floodFill(x-1, y+1, visited, n, m)
+    floodFill(x, y-1, visited, n, m)
+    floodFill(x, y+1, visited, n, m)
+    floodFill(x+1, y-1, visited, n, m)
+    floodFill(x+1, y, visited, n, m)
+    floodFill(x+1, y+1, visited, n, m)
   }
 
   const setPixelColor= (rowIndex, colIndex) => {
