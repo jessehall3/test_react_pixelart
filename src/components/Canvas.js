@@ -1,17 +1,27 @@
-import React, { Component, useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import Pixel from './Pixel';
 import Colors from './../Colors';
 
 const Canvas = (props) => {
-  const createMatrix = (size=30, val=0) => {
-    return Array(size).fill()
+  const defaultSize = 30
+
+  const createMatrix = (val=0) => {
+    return Array(defaultSize).fill()
       .map( ()=>{
-        return Array(size).fill(val)
+        return Array(defaultSize).fill(val)
       })
   }
 
   const [matrix, setMatrix] = useState(createMatrix())
   const [mouseDown, setMouseDown] = useState(false)
+
+  useEffect( () => {
+    if(props.uniformColor > -1){
+      const newMatrix = createMatrix(props.uniformColor)
+      setMatrix(newMatrix)
+      props.setUniformColor(-1)
+    }
+  })
 
   const setPixelColor= (rowIndex, colIndex) => {
     const newMatrix = JSON.parse(JSON.stringify(matrix))
