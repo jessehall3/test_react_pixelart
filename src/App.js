@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Canvas from './components/Canvas';
 import ColorPicker from './components/ColorPicker';
+import Controls from './components/Controls';
 import './App.css';
 
 function App() {
@@ -10,18 +11,11 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <h1>Pixel Art</h1>
-        <div className="radio">
-          <input type="radio" name="tool_type" value="0" checked={toolType == 0}/>
-            Paint Brush<br/>
-          <input type="radio" name="tool_type" value="1" checked={toolType == 1}/>
-            Flood Fill<br/>
-        </div>
-        <button onClick={() => setUniformColor(0)}>
-          Clear
-        </button>
-      </div>
+      <Controls
+        setToolType={setToolType}
+        setUniformColor={setUniformColor}
+        toolType={toolType}
+      />
       <ColorPicker
         currentColor={color}
         setColor={setColor}
